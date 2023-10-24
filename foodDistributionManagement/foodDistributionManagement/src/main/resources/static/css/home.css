@@ -1,0 +1,87 @@
+/* Reset some default styles */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #9d078e;
+}
+
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 1rem 0;
+    height: 65px;
+}
+header h1{
+    text-align: center;
+}
+nav{
+    text-align: right;
+}
+nav ul {
+    margin-top:13px;
+    list-style:armenian;
+    /* align-self: right; */
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#hero {
+    background-image: url('hero-image.jpg');
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+    padding: 4rem 0;
+}
+
+#hero h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #555;
+}
+
+section {
+    padding: 2rem;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.product-card {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+}

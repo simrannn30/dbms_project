@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "FoodDistributionManagementApplication",
+            "request": "launch",
+            "mainClass": "com.simran.demo.foodDistributionManagement.FoodDistributionManagementApplication",
+            "projectName": "foodDistributionManagement"
+        },
+        {
+            "type": "java",
+            "name": "FoodDistributionManagementApplication",
+            "request": "launch",
+            "mainClass": "com.simran.demo.foodDistributionManagement.FoodDistributionManagementApplication",
+            "projectName": "food_distribution_management"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-FoodDistributionManagementApplication<food_distribution_management>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.simran.demo.food_distribution.FoodDistributionManagementApplication",
+            "projectName": "food_distribution_management",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
