@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Distributor Company</title>
     <link rel="stylesheet" th:href="@{/css/home.css}">
+    
 </head>
 <body>
     <header>
@@ -12,7 +13,7 @@
         <nav>
             <ul>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#products">Product</a></li>
+                <li><a href="/products">Product</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -21,7 +22,7 @@
     <section id="hero">
         <h2>Your Trusted Partner in Food Distribution</h2>
         <p>We connect quality food manufacturers with retailers to ensure fresh and delicious products reach consumers.</p>
-        <a href="#contact" class="cta-button">Get Started</a>
+        <a href="#login" class="cta-button">Employee Login</a>
     </section>
 
     <section id="about">
@@ -31,17 +32,23 @@
 
     <section id="products">
         <h2>Our Products</h2>
-        <div class="product-card">
-            <img src="" alt="Product 1">
-            <h3>Product 1</h3>
-            <p>Description of Product 1.</p>
+        <div class="product-carousel">
+            <div class="product-card">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>Description of Product 1.</p>
+            </div>
+            <div class="product-card">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>Description of Product 2.</p>
+            </div>
+            <!-- Add more product cards as needed -->
         </div>
-        <div class="product-card">
-            <img src="" alt="Product 2">
-            <h3>Product 2</h3>
-            <p>Description of Product 2.</p>
+        <div class="carousel-nav">
+            <button id="prev">Previous</button>
+            <button id="next">Next</button>
         </div>
-        <!-- Add more product cards as needed -->
     </section>
 
     <section id="contact">
@@ -53,5 +60,31 @@
     <footer>
         <p>&copy; 2023 Food Distributor Company</p>
     </footer>
+    <script>
+        const productCarousel = document.querySelector('.product-carousel');
+        const productCards = document.querySelectorAll('.product-card');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let currentIndex = 0;
+    
+        function updateCarousel() {
+            productCarousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+    
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < productCards.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+    </script>
+    
 </body>
 </html>

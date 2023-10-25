@@ -71,12 +71,38 @@ section {
     border-radius: 5px;
 }
 
+.product-carousel {
+    display: flex;
+    overflow: hidden;
+    margin: 20px 0;
+    width: 100%;
+}
+
 .product-card {
+    flex: 0 0 80%; /* Set the width of each card */
+    transition: transform 0.5s;
     text-align: center;
     padding: 20px;
-    margin: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
+}
+
+.carousel-nav {
+    text-align: center;
+}
+
+#prev, #next {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+#prev:hover, #next:hover {
+    background-color: #555;
 }
 
 footer {
