@@ -12,9 +12,9 @@
             <th>Email</th>
         </tr>
         <tr th:each="customer : ${Clients}">
-            <td th:text="${customer.id}"></td>
-            <td th:text="${customer.name}"></td>
-            <td th:text="${customer.email}"></td>
+            <td th:text="${customer.C_ID}"></td>
+            <td th:text="${customer.C_Name}"></td>
+            <td th:text="${customer.Contact}"></td>
         </tr>
     </table>
 </body>

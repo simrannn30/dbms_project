@@ -20,7 +20,7 @@ public class CustomerMysql implements customerDAO {
 
     @Override
     public int insertCustomer(Clients customer) {
-        String query = "INSERT INTO Customer(name,phone,email,DOB,address) VALUES (?,?,?,?,?);";
+        String query = "INSERT INTO Customer(name,phone,address) VALUES (?,?,?);";
         Object[] args = new Object[] {
                 customer.getC_Name(),
                 customer.getContact(),
