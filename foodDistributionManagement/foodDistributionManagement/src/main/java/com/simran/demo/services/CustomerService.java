@@ -2,7 +2,6 @@ package com.simran.demo.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,6 @@ import com.simran.demo.model.Clients;
 public class CustomerService {
     private customerDAO CustomerDAO;
 
-    @Autowired
     public CustomerService(@Qualifier("customer_mysql_repo") customerDAO customerDAO) {
         this.CustomerDAO = customerDAO;
     }
@@ -22,7 +20,7 @@ public class CustomerService {
         return CustomerDAO.insertCustomer(customer);
     }
 
-    public Clients getCustomerByID(int id) {
+    public Clients getCustomerByID(String id) {
         return CustomerDAO.getCustomerByID(id);
     }
 
@@ -30,11 +28,11 @@ public class CustomerService {
         return CustomerDAO.getCustomerByNumber(phone);
     }
 
-    public int updateCustomer(int id, Clients customer) {
+    public int updateCustomer(String id, Clients customer) {
         return CustomerDAO.updateCustomer(id, customer);
     }
 
-    public int deleteCustomer(int id) {
+    public int deleteCustomer(String id) {
         return CustomerDAO.deleteCustomer(id);
     }
 

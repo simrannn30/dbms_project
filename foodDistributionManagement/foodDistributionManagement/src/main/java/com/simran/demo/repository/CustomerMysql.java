@@ -3,7 +3,6 @@ package com.simran.demo.repository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.DeprecatedConfigurationProperty;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -20,8 +19,9 @@ public class CustomerMysql implements customerDAO {
 
     @Override
     public int insertCustomer(Clients customer) {
-        String query = "INSERT INTO Customer(name,phone,address) VALUES (?,?,?);";
+        String query = "INSERT INTO Clients(C_ID,C_Name,Contact,Address) VALUES (?,?,?,?);";
         Object[] args = new Object[] {
+                customer.getC_ID(),
                 customer.getC_Name(),
                 customer.getContact(),
                 customer.getAddress(),
@@ -30,8 +30,9 @@ public class CustomerMysql implements customerDAO {
     }
 
     @Override
-    public Clients getCustomerByID(int id) {
-        String query = "SELECT * FROM Customer WHERE customerID = ?;";
+    @Deprecated
+    public Clients getCustomerByID(String id) {
+        String query = "SELECT * FROM Clients WHERE C_ID = ?;";
         Object[] args = new Object[]{
                 id
         };
@@ -39,8 +40,9 @@ public class CustomerMysql implements customerDAO {
     }
 
     @Override
+    @Deprecated
     public Clients getCustomerByNumber(String phone) {
-        String query = "SELECT * FROM Customer WHERE Customer.phone=?;";
+        String query = "SELECT * FROM Clients WHERE Clients.Contact=?;";
         Object[] args = new Object[]{
                 phone
         };
@@ -49,8 +51,8 @@ public class CustomerMysql implements customerDAO {
 
 
     @Override
-    public int updateCustomer(int id, Clients customer) {
-        String query="UPDATE Customer SET name=?,phone=?,address=? WHERE customerID = ?;";
+    public int updateCustomer(String id, Clients customer) {
+        String query="UPDATE Clients SET C_Name=?,Contact=?,Address=? WHERE C_ID = ?;";
         Object[] args = new Object[]{
                 customer.getC_Name(),
                 customer.getContact(),
@@ -61,8 +63,8 @@ public class CustomerMysql implements customerDAO {
     }
 
     @Override
-    public int deleteCustomer(int id) {
-        String query="DELETE FROM Customer WHERE customerID = ?;";
+    public int deleteCustomer(String id) {
+        String query="DELETE FROM Clients WHERE C_ID = ?;";
         Object[] args = new Object[]{
                 id
         };
@@ -71,8 +73,7 @@ public class CustomerMysql implements customerDAO {
 
     @Override
     public List<Clients> getAllCustomer(){
-        String query = "select * from Customer ;";
+        String query = "select * from Clients ;";
         return jdbcTemplate.query(query,BeanPropertyRowMapper.newInstance(Clients.class));
-
     }
 }

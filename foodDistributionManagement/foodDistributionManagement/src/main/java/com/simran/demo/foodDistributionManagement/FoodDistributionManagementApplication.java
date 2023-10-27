@@ -15,5 +15,4 @@ public class FoodDistributionManagementApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FoodDistributionManagementApplication.class, args);
 	}
-
 }
