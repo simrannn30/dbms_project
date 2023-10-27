@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Employee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/employees.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <div class="container">
+        <!-- Page Content -->
+        <h1 class="mt-4">Edit Employee Information</h1>
+            <div class="text-center">
+              <br/>
+              <form action="" th:object="${employees}" method="post">
+                  <table border="0" cellpadding="10">
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type="text" class="form-control" id="Name" name="Name" th:field="${employees.E_Name}" required /></td>
+                    </tr>
+                    <tr>
+                        <td>Designation:</td>
+                        <td><input type="text" class="form-control" id="Designation" name="Designation" th:field="${employees.Designation}" required /></td>
+                    </tr>
+                    <tr>
+                        <td>Contact:</td>
+                        <td><input type="text" class="form-control" id="Contact" name="Contact" th:field="${employees.Contact}" pattern="[0-9]{10}" required /></td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td><input type="text" class="form-control" id="Address" name="Address" th:field="${employees.Address}" required /></td>
+                    </tr>
+                    <tr>
+                        <td>Salary:</td>
+                        <td><input type="text" class="form-control" id="Salary" name="Salary" th:field="${employees.Salary}" required /></td>
+                    </tr>
+                    <!-- Add more input fields for other attributes as needed -->
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            </div>
+      <!-- /#page-content-wrapper -->
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
