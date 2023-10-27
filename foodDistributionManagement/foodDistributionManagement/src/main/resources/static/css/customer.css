@@ -22,7 +22,7 @@ body {
     padding: 20px;
 }
 
-.sidenav button.sidebar-button {
+.sidenav .list-unstyled.components li a.sidebar-button {
     background: #6f42c1;
     border: none;
     font-size: 20px;
@@ -38,9 +38,10 @@ body {
     cursor: pointer;
     border-radius: 10px;
     margin: 10px 20px;
+    text-decoration: none; /* Remove underlines for links */
 }
 
-.sidenav button.sidebar-button:hover {
+.sidenav .list-unstyled.components li a.sidebar-button:hover {
     background-color: #8BC34A;
 }
 

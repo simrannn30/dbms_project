@@ -14,34 +14,34 @@
         </div>
         <ul class="list-unstyled components">
             <li>
-                <button class="btn btn-block btn-primary sidebar-button" onclick="navigateTo('customers')">
+                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
                     Customers
-                </button>
+                </a>
             </li>
             <li>
-                <button class="btn btn-block btn-primary sidebar-button" onclick="navigateTo('customer-orders')">
+                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
                     Customer Orders
-                </button>
+                </a>
             </li>
             <li>
-                <button class="btn btn-block btn-primary sidebar-button" onclick="navigateTo('payments')">
+                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
                     Payments
-                </button>
+                </a>
             </li>
             <li>
-                <button class="btn btn-block btn-primary sidebar-button" onclick="navigateTo('suppliers')">
+                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
                     Suppliers
-                </button>
+                </a>
             </li>
             <li>
-                <button class="btn btn-block btn-primary sidebar-button" onclick="navigateTo('supplier-orders')">
+                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
                     Supplier Orders
-                </button>
+                </a>
             </li>
             <li>
-                <button class="btn btn-block btn-primary sidebar-button" onclick="navigateTo('employees')">
+                <a href="/Employees" class="btn btn-block btn-primary sidebar-button">
                     Employees
-                </button>
+                </a>
             </li>
         </ul>
     </div>
@@ -66,6 +66,7 @@
                         <th class="id-column"><b>ID</b></th>
                         <th class="name-column"><b>Name</b></th>
                         <th class="contact-column"><b>Contact</b></th>
+                        <th class="address-column"><b>Address</b></th>
                         <th class="action-column"><b>Action</b></th>
                     </tr>
                 </thead>
@@ -74,6 +75,7 @@
                         <td th:text="${customer.C_ID}"></td>
                         <td th:text="${customer.C_Name}"></td>
                         <td th:text="${customer.Contact}"></td>
+                        <td th:text="${customer.Address}"></td>
                         <td><a th:href="'/Customers/edit/'+${customer.C_ID}"><button type="button"
                             class="btn btn-warning edit-button"><i class="fas fa-edit"></i>Edit</button></a>
                         <a th:href="'/Customers/delete/'+${customer.C_ID}"><button type="button"
