@@ -1,90 +1,96 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Distributor Company</title>
-    <link rel="stylesheet" th:href="@{/css/home.css}">
-    
+  <title>Dear Diet</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Food Distributor Company</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="/products">Product</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#about">ABOUT</a></li>
+              <li><a href="#products">PRODUCTS</a></li>
+              <li><a href="#contact">CONTACT</a></li>
             </ul>
-        </nav>
-    </header>
-
-    <section id="hero">
-        <h2>Your Trusted Partner in Food Distribution</h2>
-        <p>We connect quality food manufacturers with retailers to ensure fresh and delicious products reach consumers.</p>
-        <a href="/login" class="cta-button">Employee Login</a>
-    </section>
-
-    <section id="about">
-        <h2>About Us</h2>
-        <p>We have been in the food distribution industry for over 20 years, delivering excellence in service and reliability. Our mission is to bridge the gap between food producers and retailers, ensuring a smooth supply chain.</p>
-    </section>
-
-    <section id="products">
-        <h2>Our Products</h2>
-        <div class="product-carousel">
-            <div class="product-card">
-                <img src="product1.jpg" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>Description of Product 1.</p>
-            </div>
-            <div class="product-card">
-                <img src="product2.jpg" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>Description of Product 2.</p>
-            </div>
-            <!-- Add more product cards as needed -->
+          </div>
         </div>
-        <div class="carousel-nav">
-            <button id="prev">Previous</button>
-            <button id="next">Next</button>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>If you have any questions or would like to discuss our services, please feel free to get in touch.</p>
-        <a href="mailto:info@fooddistributorcompany.com" class="cta-button">Email Us</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 Food Distributor Company</p>
-    </footer>
-    <script>
-        const productCarousel = document.querySelector('.product-carousel');
-        const productCards = document.querySelectorAll('.product-card');
-        const prevButton = document.getElementById('prev');
-        const nextButton = document.getElementById('next');
-        let currentIndex = 0;
-    
-        function updateCarousel() {
-            productCarousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-    
-        prevButton.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        });
-    
-        nextButton.addEventListener('click', () => {
-            if (currentIndex < productCards.length - 1) {
-                currentIndex++;
-                updateCarousel();
-            }
-        });
-    </script>
-    
+      </nav>
+<div class="jumbotron text-center">
+  <h1>DEAR DIET</h1>
+  <p>We specialize in Food Items Distribution Supply Chain</p>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+    <h2 id="about">About Us</h2>
+    <p>At Dear Diet, we are the pivotal link in the food supply chain, bridging the gap between discerning manufacturers and eager retailers. With a commitment to excellence, we've mastered the art of timely and efficient distribution, ensuring that quality products reach their intended destinations without delay.
+        <br>
+        <br>
+        Our dedication to precision, reliability, and quality sets us apart. We take pride in our role as the catalyst for success, helping manufacturers reach a broader market and retailers access a consistent stream of high-quality products.
+        <br>
+        <br>
+        At the heart of our operations is a passion for food, a commitment to sustainability, and a vision for a better-connected, more flavorful world. Trust us to bring your favorite flavors to your doorstep, on time, every time.
+    </p>
+  </div>
+  <div class="col-sm-4">
+    <span class="glyphicon glyphicon-signal logo"></span>
+  </div>
+</div>
+</div>
+<div class="container-fluid text-center">
+    <h2 id="products">PRODUCTS</h2>
+    <h4>Featured</h4>
+    <br>
+    <div class="row">
+      <div class="col-sm-4 text-center">
+        <img src = "/images/hul.png"></img>
+        <h4>Hindustan Unilever</h4>
+      </div>
+      <div class="col-sm-4">
+        <img src = "/images/nestle.png"></img>
+        <h4>Nestle</h4>
+      </div>
+      <div class="col-sm-4">
+        <img src = "/images/mother_dairy.jpg"></img>
+        <h4>Mother Dairy</h4>
+      </div>
+      </div>
+      <br><br>
+    <div class="row">
+      <div class="col-sm-4">
+        <img src = "/images/parle.png"></img>
+        <h4>Parle</h4>
+        
+      </div>
+      <div class="col-sm-4">
+        <img src = "/images/britannia.png"></img>
+        <h4>Britannia</h4>
+      </div>
+      <div class="col-sm-4">
+        <img src = "/images/marico.png"></img>
+        <h4>Marico</h4>
+      </div>
+    </div>
+  </div>
+<div class="container-fluid bg-grey text-center">
+    <h2 class="text-center" id="contact">CONTACT US</h2>
+    <p><span class="glyphicon glyphicon-map-marker"></span> Ghaziabad, Uttar Pradesh</p>
+    <p><span class="glyphicon glyphicon-phone"></span> +91 9811033166</p>
+    <p><span class="glyphicon glyphicon-envelope"></span> deardiet@gmail.com</p>
+</div>
 </body>
 </html>
