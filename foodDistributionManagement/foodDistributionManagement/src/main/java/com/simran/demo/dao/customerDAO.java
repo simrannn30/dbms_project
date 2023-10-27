@@ -6,13 +6,13 @@ import java.util.List;
 public interface customerDAO {
      int insertCustomer(Clients customer);
     //INSERT INTO Customer VALUES (customer);
-    Clients getCustomerByID(int id);
+    Clients getCustomerByID(String id);
     //SELECT * FROM Customer WHERE customerID = id;
     Clients getCustomerByNumber(String phone);
     //SELECT * FROM Customer WHERE Customer.phone=phone;
-    int updateCustomer(int id,Clients customer);
+    int updateCustomer(String id,Clients customer);
     //UPDATE Customer SET name=?,phone=?,email=?,dateOfBirth=?,address=? WHERE customerID = id;
-    int deleteCustomer(int id);
+    int deleteCustomer(String id);
 
     List<Clients> getAllCustomer();
     //DELETE FROM Customer WHERE customerID = id;
