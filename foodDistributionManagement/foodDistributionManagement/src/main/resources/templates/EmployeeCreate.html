@@ -15,10 +15,6 @@
               <form method="post" action = "/Employees/create">
                   <table border="0" cellpadding="10">
                     <tr>
-                        <td>ID:</td>
-                        <td><input type="text" class="form-control" id="ID" name="ID" th:field="${employees.E_ID}" required /></td>
-                    </tr>
-                    <tr>
                         <td>Name:</td>
                         <td><input type="text" class="form-control" id="Name" name="Name" th:field="${employees.E_Name}" required /></td>
                     </tr>
@@ -29,6 +25,14 @@
                     <tr>
                         <td>Contact:</td>
                         <td><input type="text" class="form-control" id="Contact" name="Contact" th:field="${employees.Contact}" pattern="[0-9]{10}" required /></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="text" class="form-control" id="Email" name="Email" th:field="${employees.Email}" required /></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="text" class="form-control" id="Password" name="Password" th:field="${employees.Password}" required /></td>
                     </tr>
                     <tr>
                         <td>Address:</td>

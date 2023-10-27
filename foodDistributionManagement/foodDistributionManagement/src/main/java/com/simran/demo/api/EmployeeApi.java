@@ -30,7 +30,7 @@ public class EmployeeApi {
     }
 
     @GetMapping(path = "{id}")
-    public Employees getEmployeeByID(@PathVariable("id") String id) {
+    public Employees getEmployeeByID(@PathVariable("id") int id) {
         return employeeService.getEmployeeByID(id);
     }
     @GetMapping(path="contact/{contact}")
@@ -39,12 +39,12 @@ public class EmployeeApi {
     }
 
     @PutMapping(path = "{id}")
-    public int updateEmployee(@PathVariable("id") String id,@RequestBody Employees employee) {
+    public int updateEmployee(@PathVariable("id") int id,@RequestBody Employees employee) {
         return employeeService.updateEmployee(id,employee);
     }
 
     @DeleteMapping(path = "{id}")
-    public int deleteEmployee(@PathVariable("id") String id) {
+    public int deleteEmployee(@PathVariable("id") int id) {
         return employeeService.deleteEmployee(id);
     }
 
@@ -52,4 +52,9 @@ public class EmployeeApi {
     public List<Employees> getAllEmployee(){
         return employeeService.getAllEmployee();
     }
+
+    // @GetMapping(path = "{id}")
+    // public List<Deliveries> getServedByEmployee(@PathVariable("id") int id){
+    //     return employeeService.getServedByEmployee(id);
+    // }
 }

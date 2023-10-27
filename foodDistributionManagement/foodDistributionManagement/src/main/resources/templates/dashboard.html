@@ -1,22 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/dashboard.css">
-    <title>Employee Dashboard</title>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
 </head>
 <body>
-    <div class="dashboard">
-        <h1>Employee Dashboard</h1>
-        <div class="button-container">
-            <a href="/Customers" class="button">Customers</a>
-            <a href="#" class="button">Suppliers</a>
-            <a href="#" class="button">Customer Orders</a>
-            <a href="#" class="button">Supplier Orders</a>
-            <a href="#" class="button">Payments</a>
-            <a href="#" class="button">Employees</a>
+    <div id="sidebar" class="sidenav">
+        <div class="menu-container">
+            <h2><big><b>Menu</b></big></h2>
+        </div>
+        <ul class="list-unstyled components">
+            <li>
+                <a href="/dashboard" class="btn btn-block btn-primary sidebar-button">
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
+                    Customers
+                </a>
+            </li>
+            <li>
+                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
+                    Customer Orders
+                </a>
+            </li>
+            <li>
+                <a href="/Payments" class="btn btn-block btn-primary sidebar-button">
+                    Payments
+                </a>
+            </li>
+            <li>
+                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
+                    Suppliers
+                </a>
+            </li>
+            <li>
+                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
+                    Supplier Orders
+                </a>
+            </li>
+            <li>
+                <a href="/Employees" class="btn btn-block btn-primary sidebar-button">
+                    Employees
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="main">
+        <div class="navbar">
+            <button class="openbtn" onclick="toggleNav()">&#9776;</button>
         </div>
     </div>
+    <div class="dashboard">
+        <h3 class="dark-mode">Employee Dashboard</h3>
+        <div class="button-container">
+            <div class="column">
+                <a href="/Customers" class="btn btn-primary button" style="background-color: #f74d2f;">
+                    <i class="fas fa-users" style="font-size: 54px;"></i>
+                    <span style="font-size: 27px;">Customers</span>
+                </a>
+                <a href="#" class="btn btn-primary button" style="background-color: #33a4ff;">
+                    <i class="fas fa-truck" style="font-size: 54px;"></i>
+                    <span style="font-size: 27px;">Suppliers</span>
+                </a>
+            </div>
+            <div class="column">
+                <a href="#" class="btn btn-primary button" style="background-color: #ede436;">
+                    <i class="fas fa-shopping-cart" style="font-size: 54px;"></i>
+                    <span style="font-size: 27px;">Customer Orders</span>
+                </a>
+                <a href="#" class="btn btn-primary button" style="background-color: #ff9900;">
+                    <i class="fas fa-box-open" style="font-size: 54px;"></i>
+                    <span style="font-size: 27px;">Supplier Orders</span>
+                </a>
+            </div>
+            <div class "column">
+                <a href="/Payments" class="btn btn-primary button" style="background-color: #47c322;">
+                    <i class="fas fa-money-bill-wave" style="font-size: 54px;"></i>
+                    <span style="font-size: 27px;">Payments</span>
+                </a>
+                <a href="/Employees" class="btn btn-primary button" style="background-color: #ff3383;">
+                    <i class="fas fa-users-cog" style="font-size: 54px;"></i>
+                    <span style="font-size: 27px;">Employees</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <b class="center-copyright">
+                        &copy; <span id="currentYear"></span> Copyright: Dear Diet
+                    </b>
+                </div>
+                <div class="col-6 text right">
+                    <b>Follow us on :</b>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class=" social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        let sidebarOpen = false;
+    
+        function toggleNav() {
+            const sidebar = document.getElementById("sidebar");
+            const main = document.getElementById("main");
+            const hamburgerButton = document.querySelector('.openbtn');
+    
+            if (!sidebarOpen) {
+                sidebar.style.width = "250px";
+                main.style.marginLeft = "250px";
+                hamburgerButton.textContent = '✕';
+                hamburgerButton.classList.add('shifted');
+            } else {
+                sidebar.style.width = "0";
+                main.style.marginLeft = "0";
+                hamburgerButton.textContent = '☰';
+                hamburgerButton.classList.remove('shifted');
+            }
+    
+            sidebarOpen = !sidebarOpen;
+        }
+    </script>
 </body>
 </html>

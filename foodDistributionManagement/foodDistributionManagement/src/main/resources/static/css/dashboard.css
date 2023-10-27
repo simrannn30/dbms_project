@@ -1,45 +1,213 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-.dashboard {
-    background-color: #ffffff;
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
     text-align: center;
 }
 
-h1 {
+.dark-mode-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #343a40;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.dark-mode-button:hover {
+    background-color: #555;
+}
+
+.dark-mode .footer {
+    background: #565869;
+    color: #fff;
+}
+
+.dark-mode h3 {
+    color: #fff;
+}
+
+body.dark-mode {
+    background-color: #1b1c1d;
+    transition: background-color 1s ease;
+}
+
+.footer {
+    background-color: #663399;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    height: 45px;
+}
+
+.center-copyright {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.center-copyright span {
+    font-weight: normal;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer a.social-icon i {
     font-size: 24px;
-    margin-bottom: 20px;
+}
+
+.footer a:hover {
+    color: #27ae60;
+}
+
+h3 {
+    color: #4e4544;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 75px;
+    border-radius: 50px;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
 }
 
 .button-container {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: center;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.column {
+    flex: 0 0 calc(33.33% - 20px);
+    padding: 10px;
 }
 
 .button {
-    display: inline-block;
-    padding: 10px 20px;
     margin: 10px;
-    background-color: #007BFF;
-    color: #fff;
     border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-weight: 600;
+    transition: 0.3s ease;
+    background-color: #249eea;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 180px;
+    width: 360px;
+    justify-content: center;
+}
+
+.button i {
+    font-size: 54px;
+    margin-bottom: 10px;
+}
+
+.button span {
+    font-size: 27px;
+}
+
+.button:last-child {
+    margin-top: 70px;
 }
 
 .button:hover {
-    background-color: #0056b3;
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.menu-container {
+    padding: 20px;
+}
+
+.sidenav .list-unstyled.components li a.sidebar-button {
+    background: #6f42c1;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    width: calc(100% - 40px);
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px 20px;
+    text-decoration: none; /* Remove underlines for links */
+}
+
+.sidenav .list-unstyled.components li a.sidebar-button:hover {
+    background-color: #8BC34A;
+}
+
+
+.sidenav .sidebar-header {
+    text-align: center;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#main {
+    transition: margin-left 0.3s;
+    padding: 16px;
+    margin-left: 0;
+    z-index: 0;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.openbtn {
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.openbtn.shifted {
+    right: 0;
+    transform: translateX(500%);
+    transition: right 0.3s ease, transform 0.3s ease;
 }

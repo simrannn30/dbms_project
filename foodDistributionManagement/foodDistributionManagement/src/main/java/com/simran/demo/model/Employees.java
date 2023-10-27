@@ -4,16 +4,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employees {
-    private String E_ID;
+    private int E_ID;
     private String E_Name;
     private String Designation;
     private String Contact;
+    private String Email;
     private String Address;
     private Long Salary;
-    public String getE_ID() {
+    public int getE_ID() {
         return E_ID;
     }
-    public void setE_ID(String e_ID) {
+    public void setE_ID(int e_ID) {
         this.E_ID = e_ID;
     }
     public String getE_Name() {
@@ -45,5 +46,18 @@ public class Employees {
     }
     public void setSalary(Long salary) {
         this.Salary = salary;
+    }
+    public String getEmail() {
+        return Email;
+    }
+    public void setEmail(String email) {
+        this.Email = email;
+    }
+    private String Password;
+    public String getPassword() {
+        return Password;
+    }
+    public void setPassword(String password) {
+        this.Password = password;
     }
 }

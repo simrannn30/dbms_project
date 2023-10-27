@@ -6,7 +6,7 @@ public class Deliveries {
     private String C_ID;
     private String Employee_Assigned;
     private String D_Status;
-    private Date D_date;
+    private Date D_Date;
     private Long Amount;
     private String P_Status;
     public String getD_ID() {
@@ -33,11 +33,11 @@ public class Deliveries {
     public void setD_Status(String d_Status) {
         D_Status = d_Status;
     }
-    public Date getD_date() {
-        return D_date;
+    public Date getD_Date() {
+        return D_Date;
     }
-    public void setD_date(Date d_date) {
-        D_date = d_date;
+    public void setD_Date(Date d_Date) {
+        D_Date = d_Date;
     }
     public Long getAmount() {
         return Amount;

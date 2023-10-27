@@ -14,6 +14,11 @@
         </div>
         <ul class="list-unstyled components">
             <li>
+                <a href="/dashboard" class="btn btn-block btn-primary sidebar-button">
+                    Dashboard
+                </a>
+            </li>
+            <li>
                 <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
                     Customers
                 </a>
@@ -24,7 +29,7 @@
                 </a>
             </li>
             <li>
-                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
+                <a href="/Payments" class="btn btn-block btn-primary sidebar-button">
                     Payments
                 </a>
             </li>
@@ -57,7 +62,7 @@
                   </a>
             </div>
             <form method="GET" target="" class="mx-2">
-                <input type="text" placeholder="Employee ID" name="id" pattern="E[0-9]*"/>
+                <input type="text" placeholder="Employee ID" name="id" pattern="[0-9]*"/>
                 <button class="btn btn-info">Search</button>
             </form>
             <table id="employeeTable" class="table table-bordered table-hover">
@@ -67,6 +72,7 @@
                         <th class="name-column"><b>Name</b></th>
                         <th class="designation-column"><b>Designation</b></th>
                         <th class="contact-column"><b>Contact</b></th>
+                        <th class="contact-column"><b>Email</b></th>
                         <th class="address-column"><b>Address</b></th>
                         <th class="salary-column"><b>Salary</b></th>
                         <th class="action-column"><b>Action</b></th>
@@ -78,12 +84,13 @@
                         <td th:text="${employee.E_Name}"></td>
                         <td th:text="${employee.Designation}"></td>
                         <td th:text="${employee.Contact}"></td>
+                        <td th:text="${employee.Email}"></td>
                         <td th:text="${employee.Address}"></td>
                         <td th:text="${employee.Salary}"></td>
                         <td><a th:href="'/Employees/edit/'+${employee.E_ID}"><button type="button"
-                            class="btn btn-warning edit-button"><i class="fas fa-edit"></i>Edit</button></a>
+                            class="btn btn-warning edit-button"><i class="fas fa-edit"></i></button></a>
                         <a th:href="'/Employees/delete/'+${employee.E_ID}"><button type="button"
-                            class="btn btn-danger delete-button"><i class="fas fa-trash"></i>Delete</button></a></td>
+                            class="btn btn-danger delete-button"><i class="fas fa-trash"></i></button></a></td>
                     </tr>
                 </tbody>
             </table>

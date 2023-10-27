@@ -20,12 +20,14 @@ public class EmployeeMysql implements employeeDAO {
 
     @Override
     public int insertEmployee(Employees employee) {
-        String query = "INSERT INTO Employees(E_ID, E_Name, Designation, Contact, Address, Salary) VALUES (?,?,?,?,?,?);";
+        String query = "INSERT INTO Employees(E_ID, E_Name, Designation, Contact, Email, Password, Address, Salary) VALUES (?,?,?,?,?,?,?,?);";
         Object[] args = new Object[] {
                 employee.getE_ID(),
                 employee.getE_Name(),
                 employee.getDesignation(),
                 employee.getContact(),
+                employee.getEmail(),
+                employee.getPassword(),
                 employee.getAddress(),
                 employee.getSalary(),
         };
@@ -34,7 +36,7 @@ public class EmployeeMysql implements employeeDAO {
 
     @Override
     @Deprecated
-    public Employees getEmployeeByID(String id) {
+    public Employees getEmployeeByID(int id) {
         String query = "SELECT * FROM Employees WHERE E_ID = ?;";
         Object[] args = new Object[]{
                 id
@@ -54,12 +56,14 @@ public class EmployeeMysql implements employeeDAO {
 
 
     @Override
-    public int updateEmployee(String id, Employees employee) {
-        String query="UPDATE Employees SET E_Name=?,Designation=?,Contact=?,Address=?,Salary=? WHERE E_ID = ?;";
+    public int updateEmployee(int id, Employees employee) {
+        String query="UPDATE Employees SET E_Name=?,Designation=?,Contact=?,Email=?,Password=?,Address=?,Salary=? WHERE E_ID = ?;";
         Object[] args = new Object[]{
                 employee.getE_Name(),
                 employee.getDesignation(),
                 employee.getContact(),
+                employee.getEmail(),
+                employee.getPassword(),
                 employee.getAddress(),
                 employee.getSalary(),
                 id
@@ -68,7 +72,7 @@ public class EmployeeMysql implements employeeDAO {
     }
 
     @Override
-    public int deleteEmployee(String id) {
+    public int deleteEmployee(int id) {
         String query="DELETE FROM Employees WHERE E_ID = ?;";
         Object[] args = new Object[]{
                 id
@@ -84,7 +88,7 @@ public class EmployeeMysql implements employeeDAO {
 
     @Override
     @Deprecated
-    public List<Deliveries> getServedByEmployee(String id) {
+    public List<Deliveries> getServedByEmployee(int id) {
         String query = "select * from Deliveries where Employee_Assigned=?;";
         Object[] args = new Object[]{
                 id
@@ -93,7 +97,7 @@ public class EmployeeMysql implements employeeDAO {
     }
 
     @Override
-    public int updatePassword(String id, String password) {
+    public int updatePassword(int id, String password) {
         String query = "UPDATE Employees SET password=? WHERE E_ID=?";
         Object[] args = new Object[]{
                 password,

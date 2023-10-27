@@ -23,14 +23,11 @@ public class employeesController {
 
     @GetMapping("/Employees")
     public String listEmployees(Model model, HttpSession session, @RequestParam(required = false) String id) {
-        // if(!authenticationService.isAuthenticated(session)){
-        //     return "redirect:/login";
-        // }
         List<Employees> employees = new ArrayList<>();
         if (id == null || id == "") {
             employees = employeeDAO.getAllEmployee();
         } else {
-            String intid = id;
+            int intid = Integer.parseInt(id);
             try {
                 Employees emps = employeeDAO.getEmployeeByID(intid);
                 employees.add(emps);
@@ -64,7 +61,7 @@ public class employeesController {
         return "redirect:/Employees";
     }
     @GetMapping ("/Employees/delete/{id}")
-    public String deleteEmployee(@PathVariable("id") String id, HttpSession session)
+    public String deleteEmployee(@PathVariable("id") int id, HttpSession session)
     {
         // if(!authenticationService.isAuthenticated(session)){
         //     return "redirect:/login";
@@ -73,21 +70,19 @@ public class employeesController {
         return "redirect:/Employees";
     }
     @GetMapping ("/Employees/edit/{id}")
-    public String editEmployee(@PathVariable("id") String id, Model model, HttpSession session)
+    public String editEmployee(@PathVariable("id") int id, Model model, HttpSession session)
     {
         // if(!authenticationService.isAuthenticated(session)){
         //     return "redirect:/login";
         // }
         Employees employees = employeeDAO.getEmployeeByID(id);
-        System.out.println("HAHAHAH NOOOBS 1");
         model.addAttribute("employees", employees);
         return "EmployeeEdit.html";
     }
 
     @PostMapping ("/Employees/edit/{id}")
-    public String editEmployeePost(@PathVariable("id") String id, @ModelAttribute("employees") Employees employees, HttpSession session)
+    public String editEmployeePost(@PathVariable("id") int id, @ModelAttribute("employees") Employees employees, HttpSession session)
     {
-        System.out.println("HAHAHAH NOOOBS 2");
         // if(!authenticationService.isAuthenticated(session)){
         //     return "redirect:/login";
         // }
