@@ -1,11 +1,14 @@
 package com.simran.demo.model;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Deliveries {
     private String D_ID;
     private String C_ID;
-    private String Employee_Assigned;
+    private int Employee_Assigned;
     private String D_Status;
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date D_Date;
     private Long Amount;
     private String P_Status;
@@ -21,10 +24,10 @@ public class Deliveries {
     public void setC_ID(String c_ID) {
         C_ID = c_ID;
     }
-    public String getEmployee_Assigned() {
+    public int getEmployee_Assigned() {
         return Employee_Assigned;
     }
-    public void setEmployee_Assigned(String employee_Assigned) {
+    public void setEmployee_Assigned(int employee_Assigned) {
         Employee_Assigned = employee_Assigned;
     }
     public String getD_Status() {
@@ -37,7 +40,7 @@ public class Deliveries {
         return D_Date;
     }
     public void setD_Date(Date d_Date) {
-        D_Date = d_Date;
+        this.D_Date = d_Date;
     }
     public Long getAmount() {
         return Amount;

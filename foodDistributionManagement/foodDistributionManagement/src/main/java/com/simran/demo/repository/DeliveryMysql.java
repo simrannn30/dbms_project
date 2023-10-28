@@ -73,8 +73,11 @@ public class DeliveryMysql implements deliveryDAO{
     }
 
     @Override
-    public List<Deliveries> getDeliveriesofClients(String id){
-    String query = "select * from Deliveries where C_ID = id;";
-    return jdbcTemplate.query(query,BeanPropertyRowMapper.newInstance(Deliveries.class));
+    public List<Deliveries> getDeliveriesofClients(String clientid){
+    String query = "select * from Deliveries where C_ID = ?;";
+    Object[] args = new Object[]{
+                clientid
+        };
+    return jdbcTemplate.query(query,args, BeanPropertyRowMapper.newInstance(Deliveries.class));
     }
 }

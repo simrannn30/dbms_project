@@ -48,8 +48,8 @@ public class DeliveryApi {
         return deliveryService.getAllDeliveries();
     }
 
-    // @GetMapping(path = "{id}")
-    // public List<Deliveries> getDeliveriesofClients(@PathVariable("id") String id){
-    //     return deliveryService.getDeliveriesofClients(id);
-    // }
+    @GetMapping(path = "{clientid}")
+    public List<Deliveries> getDeliveriesofClients(@PathVariable("clientid") String clientid){
+        return deliveryService.getDeliveriesofClients(clientid);
+    }
 }

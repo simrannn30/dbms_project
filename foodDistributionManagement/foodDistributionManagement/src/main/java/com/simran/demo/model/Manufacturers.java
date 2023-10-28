@@ -5,7 +5,7 @@ public class Manufacturers {
     private String M_Name;
     private String Contact;
     private String Address;
-    private String POC;
+    private int POC;
     public String getM_ID() {
         return M_ID;
     }
@@ -30,10 +30,10 @@ public class Manufacturers {
     public void setAddress(String address) {
         Address = address;
     }
-    public String getPOC() {
+    public int getPOC() {
         return POC;
     }
-    public void setPOC(String pOC) {
+    public void setPOC(int pOC) {
         POC = pOC;
     }
 }
