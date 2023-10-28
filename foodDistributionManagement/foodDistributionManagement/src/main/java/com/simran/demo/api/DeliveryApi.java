@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.simran.demo.model.BillingDetails;
 import com.simran.demo.model.Deliveries;
+import com.simran.demo.services.BillingService;
 import com.simran.demo.services.DeliveryService;
 
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.List;
 public class DeliveryApi {
     
     private DeliveryService deliveryService;
+    private BillingService billingService;
 
     public DeliveryApi(DeliveryService deliveryService){
         this.deliveryService=deliveryService;
@@ -51,5 +54,10 @@ public class DeliveryApi {
     @GetMapping(path = "{clientid}")
     public List<Deliveries> getDeliveriesofClients(@PathVariable("clientid") String clientid){
         return deliveryService.getDeliveriesofClients(clientid);
+    }
+
+    @GetMapping(path = "/view/{id}")
+    public List<BillingDetails> getCustomerOrderItemByCustomerOrder(@PathVariable("id") String id){
+        return billingService.getCustomerOrderItemByCustomerOrder(id);
     }
 }

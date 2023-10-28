@@ -3,7 +3,6 @@ package com.simran.demo.model;
 public class BillingDetails {
     private String Bill_No;
     private String P_ID;
-    private String Trans_type;
     private Long Quantity;
     private Long Rate;
     public String getBill_No() {
@@ -17,12 +16,6 @@ public class BillingDetails {
     }
     public void setP_ID(String p_ID) {
         P_ID = p_ID;
-    }
-    public String getTrans_type() {
-        return Trans_type;
-    }
-    public void setTrans_type(String trans_type) {
-        Trans_type = trans_type;
     }
     public Long getQuantity() {
         return Quantity;
