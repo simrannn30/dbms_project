@@ -82,14 +82,14 @@
                         <td th:text="${customer.Contact}"></td>
                         <td th:text="${customer.Address}"></td>
                         <td><a th:href="'/Customers/edit/'+${customer.C_ID}"><button type="button"
-                            class="btn btn-warning edit-button"><i class="fas fa-edit"></i></button></a>
+                            class="btn btn-warning edit-button"><i class="fas fa-edit"></i>Edit</button></a>
                         <a th:href="'/Customers/delete/'+${customer.C_ID}"><button type="button"
-                            class="btn btn-danger delete-button"><i class="fas fa-trash"></i></button></a></td>
+                            class="btn btn-danger delete-button"><i class="fas fa-trash"></i>Delete</button></a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <a href="/Employees" class="btn btn-secondary mt-3" style="background-color: #FFC107 ; border: none">Back</a>
+        <a href="/Customers" class="btn btn-secondary mt-3" style="background-color: #FFC107 ; border: none">Back</a>
     </div>
     <footer class="footer">
         <div class="container">

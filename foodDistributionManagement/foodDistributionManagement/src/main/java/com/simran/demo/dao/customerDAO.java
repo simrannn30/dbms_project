@@ -13,7 +13,6 @@ public interface customerDAO {
     int updateCustomer(String id,Clients customer);
     //UPDATE Customer SET name=?,phone=?,email=?,dateOfBirth=?,address=? WHERE customerID = id;
     int deleteCustomer(String id);
-
-    List<Clients> getAllCustomer();
     //DELETE FROM Customer WHERE customerID = id;
+    List<Clients> getAllCustomer();
 }

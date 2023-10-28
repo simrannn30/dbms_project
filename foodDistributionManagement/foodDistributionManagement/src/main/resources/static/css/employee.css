@@ -155,11 +155,6 @@ tr:nth-child(even) {
     gap: 10px;
 }
 
-.edit-button, .delete-button {
-    width: 75%;
-    font-weight: bold;
-}
-
 .action-button {
     padding: 15px;
     margin: 5px;

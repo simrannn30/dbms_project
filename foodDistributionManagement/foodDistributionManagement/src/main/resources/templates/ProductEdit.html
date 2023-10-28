@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Create Order</title>
+    <title>Edit Product</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/orders.css"> <!-- Link to the external CSS file -->
+    <link rel="stylesheet" type="text/css" href="/css/product.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
     <div class="container">
         <!-- Page Content -->
-        <h1 class="mt-4">Add Supplier Order Information</h1>
+        <h1 class="mt-4">Edit Product Information</h1>
             <div class="text-center">
               <br/>
-              <form method="post" action = "/SupplierOrders/create">
+              <form action="" th:object="${products}" method="post">
                   <table border="0" cellpadding="10">
                     <tr>
-                        <td>Order ID:</td>
-                        <td><input type="text" class="form-control" id="ID" name="ID" th:field="${orders.O_ID}" required /></td>
+                        <td>Name:</td>
+                        <td><input type="text" class="form-control" id="Name" name="Name" th:field="${products.P_Name}" required /></td>
                     </tr>
                     <tr>
-                        <td>Supplier ID:</td>
-                        <td><input type="text" class="form-control" id="M_ID" name="M_ID" th:field="${orders.M_ID}" required /></td>
+                        <td>Manufacturer:</td>
+                        <td><input type="text" class="form-control" id="Manufacturer" name="Manufacturer" th:field="${products.M_ID}" pattern="M[0-9]*" required /></td>
                     </tr>
                     <tr>
-                        <td>Order Date:</td>
-                        <td><input type="date" class="form-control" id="O_Date" name="O_Date" th:field="${orders.O_Date}" required /></td>
-                    </tr>
-                    <tr>
-                        <td>Amount:</td>
-                        <td><input type="text" class="form-control" id="Amount" name="Amount" th:field="${orders.Amount}" required /></td>
+                        <td>Stock:</td>
+                        <td><input type="text" class="form-control" id="Stock" name="Stock" th:field="${products.Stock}" required /></td>
                     </tr>
                     <!-- Add more input fields for other attributes as needed -->
                     <tr>
@@ -41,7 +37,7 @@
             </div>
       <!-- /#page-content-wrapper -->
     </div>
-    <a href="/Orders" class="btn btn-secondary mt-3" style="background-color: #FFC107 ; border: none">Back</a>
+    <a href="/Products" class="btn btn-secondary mt-3" style="background-color: #FFC107 ; border: none">Back</a>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

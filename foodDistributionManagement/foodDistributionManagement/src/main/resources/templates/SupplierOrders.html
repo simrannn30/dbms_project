@@ -44,6 +44,11 @@
                 </a>
             </li>
             <li>
+                <a href="/Products" class="btn btn-block btn-primary sidebar-button">
+                    Products
+                </a>
+            </li>
+            <li>
                 <a href="/Employees" class="btn btn-block btn-primary sidebar-button">
                     Employees
                 </a>
@@ -85,17 +90,31 @@
                         <td th:text="${order.M_ID}"></td>
                         <td th:text="${order.O_Date}"></td>
                         <td th:text="${order.Amount}"></td>
-                        <td><a th:href="'/SupplierOrders/edit/'+${order.O_ID}"><button type="button"
-                            class="btn btn-warning edit-button"><i class="fas fa-edit"></i></button></a>
-                        <a th:href="'/SupplierOrders/delete/'+${order.O_ID}"><button type="button"
-                            class="btn btn-danger delete-button"><i class="fas fa-trash"></i></button></a>
-                        <a th:href="'/SupplierOrders/view/'+${order.O_ID}"><button type="button"
-                            class="btn btn-info">View</button></a>
+                        <td> 
+                            <a th:href="'/SupplierOrders/view/'+${order.O_ID}">
+                                <button type="button" class="btn btn-info info-button">
+                                    <i class="fas fa-info-circle"></i>
+                                    View
+                                </button>
+                            </a>
+                            <a th:href="'/SupplierOrders/edit/'+${order.O_ID}">
+                                <button type="button" class="btn btn-warning edit-button">
+                                    <i class="fas fa-edit"></i>
+                                    Edit
+                                </button>
+                            </a>
+                            <a th:href="'/SupplierOrders/delete/'+${order.O_ID}">
+                                <button type="button" class="btn btn-danger delete-button">
+                                    <i class="fas fa-trash"></i>
+                                    Delete
+                                </button>
+                            </a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <a href="/SupplierOrders" class="btn btn-secondary mt-3" style="background-color: #FFC107 ; border: none">Back</a>
     </div>
     <footer class="footer">
         <div class="container">
@@ -118,7 +137,6 @@
                     </a>
                 </div>
             </div>
-            <a href="/Employees" class="btn btn-secondary mt-3" style="background-color: #FFC107 ; border: none">Back</a>
         </div>
     </footer>
 

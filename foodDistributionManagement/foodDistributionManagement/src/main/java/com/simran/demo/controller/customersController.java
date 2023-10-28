@@ -77,7 +77,6 @@ public class customersController {
         //     return "redirect:/login";
         // }
         Clients customers = customerDAO.getCustomerByID(id);
-        System.out.println("HAHAHAH NOOOBS 1");
         model.addAttribute("customers", customers);
         return "CustomerEdit.html";
     }
@@ -85,7 +84,6 @@ public class customersController {
     @PostMapping ("/Customers/edit/{id}")
     public String editCustomerPost(@PathVariable("id") String id, @ModelAttribute("customers") Clients customers, HttpSession session)
     {
-        System.out.println("HAHAHAH NOOOBS 2");
         // if(!authenticationService.isAuthenticated(session)){
         //     return "redirect:/login";
         // }
