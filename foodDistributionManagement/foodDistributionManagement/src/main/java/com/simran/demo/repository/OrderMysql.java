@@ -67,8 +67,11 @@ public class OrderMysql implements orderDAO{
     }
 
     @Override
-    public List<Orders> getOrdersfromManufacturer(String id){
-    String query = "select * from Orders where M_ID = id;";
-    return jdbcTemplate.query(query,BeanPropertyRowMapper.newInstance(Orders.class));
+    public List<Orders> getOrdersfromManufacturer(String manufacturerid){
+    String query = "select * from Orders where M_ID = ?;";
+    Object[] args = new Object[]{
+                manufacturerid
+        };
+    return jdbcTemplate.query(query,args, BeanPropertyRowMapper.newInstance(Orders.class));
     }
 }

@@ -48,8 +48,8 @@ public class OrderApi {
         return orderService.getAllOrders();
     }
 
-    // @GetMapping(path = "{id}")
-    // public List<Orders> getOrdersfromManufacturer(@PathVariable("id") String id){
-    //     return orderService.getOrdersfromManufacturer(id);
-    // }
+    @GetMapping(path = "{manufacturerid}")
+    public List<Orders> getOrdersfromManufacturer(@PathVariable("manufacturerid") String manufacturerid){
+        return orderService.getOrdersfromManufacturer(manufacturerid);
+    }
 }

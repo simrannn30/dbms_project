@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Order</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/orders.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <div class="container">
+        <!-- Page Content -->
+        <h1 class="mt-4">Edit Supplier Order Information</h1>
+            <div class="text-center">
+              <br/>
+              <form action="" th:object="${orders}" method="post">
+                    <table border="0" cellpadding="10">
+                      <tr>
+                          <td>Supplier ID:</td>
+                          <td><input type="text" class="form-control" id="M_ID" name="M_ID" th:field="${orders.M_ID}" required /></td>
+                      </tr>
+                      <tr>
+                          <td>Order Date:</td>
+                          <td><input type="text" class="form-control" id="O_Date" name="O_Date" th:value="${#dates.format(orders.O_Date, 'yyyy-MM-dd')}" required /></td>
+                      </tr>
+                      <tr>
+                          <td>Amount:</td>
+                          <td><input type="text" class="form-control" id="Amount" name="Amount" th:field="${orders.Amount}" required /></td>
+                      </tr>
+                      <!-- Add more input fields for other attributes as needed -->
+                      <tr>
+                          <td colspan="2">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                          </td>
+                      </tr>
+                  </table>
+              </form>
+            </div>
+      <!-- /#page-content-wrapper -->
+    </div>
+    <a href="/Employees" class="btn btn-secondary mt-3" style="background-color: #FFC107 ; border: none">Back</a>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

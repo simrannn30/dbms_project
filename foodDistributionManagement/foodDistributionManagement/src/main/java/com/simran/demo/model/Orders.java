@@ -1,8 +1,12 @@
 package com.simran.demo.model;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Orders {
     private String O_ID;
     private String M_ID;
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date O_Date;
     private Long Amount;
     public String getO_ID() {
@@ -21,7 +25,7 @@ public class Orders {
         return O_Date;
     }
     public void setO_Date(Date o_Date) {
-        O_Date = o_Date;
+        this.O_Date = o_Date;
     }
     public Long getAmount() {
         return Amount;

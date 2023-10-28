@@ -43,6 +43,16 @@ public class DeliveryMysql implements deliveryDAO{
     }
 
     @Override
+    @Deprecated
+    public Deliveries getPaidDeliveriesByID(String id) {
+        String query = "SELECT * FROM Deliveries WHERE D_ID = ? and P_status = Paid;";
+        Object[] args = new Object[]{
+                id
+        };
+        return jdbcTemplate.queryForObject(query,args, BeanPropertyRowMapper.newInstance(Deliveries.class));
+    }
+
+    @Override
     public int updateDeliveries(String id, Deliveries delivery) {
         String query="UPDATE Deliveries SET C_ID=?,Employee_Assigned=?,D_Status=?,D_Date=?,Amount=?,P_Status=? WHERE D_ID = ?;";
         Object[] args = new Object[]{
@@ -69,6 +79,12 @@ public class DeliveryMysql implements deliveryDAO{
     @Override
     public List<Deliveries> getAllDeliveries(){
         String query = "select * from Deliveries ;";
+        return jdbcTemplate.query(query,BeanPropertyRowMapper.newInstance(Deliveries.class));
+    }
+
+    @Override
+    public List<Deliveries> getPaidDeliveries(){
+        String query = "select * from Deliveries where P_status = 'Paid';";
         return jdbcTemplate.query(query,BeanPropertyRowMapper.newInstance(Deliveries.class));
     }
 
