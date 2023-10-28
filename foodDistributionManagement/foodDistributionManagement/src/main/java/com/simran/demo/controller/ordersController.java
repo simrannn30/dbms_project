@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.simran.demo.dao.billingDAO;
 import com.simran.demo.dao.orderDAO;
+import com.simran.demo.model.BillingDetails;
 import com.simran.demo.model.Orders;
 
 import jakarta.servlet.http.HttpSession;
@@ -24,6 +26,9 @@ public class ordersController {
     
     @Autowired
     private orderDAO orderDAO;
+
+    @Autowired
+    private billingDAO billingDAO;
 
     @GetMapping("/SupplierOrders")
     public String listOrders(Model model, HttpSession session, @RequestParam(required = false) String id, @RequestParam(required = false) String manufacturerid) {
@@ -110,4 +115,18 @@ public class ordersController {
         orderDAO.updateOrders(id,orders);
         return "redirect:/SupplierOrders";
     }
+
+
+    @GetMapping("/SupplierOrders/view/{id}")
+    public String searchSupplierOrder(@PathVariable("id") String id, Model model, HttpSession session) {
+        // if(!authenticationService.isAuthenticated(session)){
+        // return "redirect:/login";
+        // }
+        List<BillingDetails> items = new ArrayList<>();
+        items = billingDAO.getSupplierOrderItemBySupplierOrder(id);
+        model.addAttribute("items", items);
+
+        return "billings";
+    }
+
 }

@@ -88,7 +88,10 @@
                         <td><a th:href="'/SupplierOrders/edit/'+${order.O_ID}"><button type="button"
                             class="btn btn-warning edit-button"><i class="fas fa-edit"></i></button></a>
                         <a th:href="'/SupplierOrders/delete/'+${order.O_ID}"><button type="button"
-                            class="btn btn-danger delete-button"><i class="fas fa-trash"></i></button></a></td>
+                            class="btn btn-danger delete-button"><i class="fas fa-trash"></i></button></a>
+                        <a th:href="'/SupplierOrders/view/'+${order.O_ID}"><button type="button"
+                            class="btn btn-info">View</button></a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

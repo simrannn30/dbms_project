@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.simran.demo.model.BillingDetails;
 import com.simran.demo.model.Orders;
+import com.simran.demo.services.BillingService;
 import com.simran.demo.services.OrderService;
 
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.List;
 public class OrderApi {
     
     private OrderService orderService;
+    private BillingService billingService;
 
     public OrderApi(OrderService orderService){
         this.orderService=orderService;
@@ -52,4 +55,11 @@ public class OrderApi {
     public List<Orders> getOrdersfromManufacturer(@PathVariable("manufacturerid") String manufacturerid){
         return orderService.getOrdersfromManufacturer(manufacturerid);
     }
+
+
+    @GetMapping(path = "/view/{id}")
+    public List<BillingDetails> getSupplierOrderItemBySupplierOrder(@PathVariable("id") String id){
+        return billingService.getSupplierOrderItemBySupplierOrder(id);
+    }
+
 }
