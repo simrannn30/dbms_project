@@ -69,6 +69,7 @@ public class employeesController {
         employeeDAO.deleteEmployee(id);
         return "redirect:/Employees";
     }
+
     @GetMapping ("/Employees/edit/{id}")
     public String editEmployee(@PathVariable("id") int id, Model model, HttpSession session)
     {
@@ -88,5 +89,16 @@ public class employeesController {
         // }
         employeeDAO.updateEmployee(id,employees);
         return "redirect:/Employees";
+    }
+
+    @GetMapping ("/Employees/info/{id}")
+    public String infoEmployee(@PathVariable("id") int id, Model model, HttpSession session)
+    {
+        // if(!authenticationService.isAuthenticated(session)){
+        //     return "redirect:/login";
+        // }
+        List<Deliveries> deliveries = employeeDAO.getServedByEmployee(id);
+        model.addAttribute("deliveries", deliveries);
+        return "EmployeeInfo.html";
     }
 }

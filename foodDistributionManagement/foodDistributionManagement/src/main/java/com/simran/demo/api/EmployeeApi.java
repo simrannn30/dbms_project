@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simran.demo.model.Employees;
+import com.simran.demo.model.Deliveries;
 import com.simran.demo.services.EmployeeService;
 
 @RestController
@@ -53,8 +54,8 @@ public class EmployeeApi {
         return employeeService.getAllEmployee();
     }
 
-    // @GetMapping(path = "{id}")
-    // public List<Deliveries> getServedByEmployee(@PathVariable("id") int id){
-    //     return employeeService.getServedByEmployee(id);
-    // }
+    @GetMapping(path = "{deliveryid}")
+    public List<Deliveries> getServedByEmployee(@PathVariable("deliveryid") int deliveryid){
+        return employeeService.getServedByEmployee(deliveryid);
+    }
 }

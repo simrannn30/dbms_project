@@ -24,6 +24,10 @@ public class DeliveryService {
         return DeliveryDAO.getDeliveriesByID(id);
     }
 
+    public Deliveries getPaidDeliveriesByID(String id) {
+        return DeliveryDAO.getPaidDeliveriesByID(id);
+    }
+
     public int updateDeliveries(String id, Deliveries delivery) {
         return DeliveryDAO.updateDeliveries(id, delivery);
     }
@@ -34,6 +38,10 @@ public class DeliveryService {
 
     public List<Deliveries> getAllDeliveries() {
         return DeliveryDAO.getAllDeliveries();
+    }
+
+    public List<Deliveries> getPaidDeliveries() {
+        return DeliveryDAO.getPaidDeliveries();
     }
 
     public List<Deliveries> getDeliveriesofClients(String id) {

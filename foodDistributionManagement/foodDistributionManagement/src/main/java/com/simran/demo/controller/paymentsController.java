@@ -33,7 +33,7 @@ public class paymentsController {
 
         if (id == null || id == "") {
             orders = orderDAO.getAllOrders();
-            deliveries = deliveryDAO.getAllDeliveries();
+            deliveries = deliveryDAO.getPaidDeliveries();
 
         } else {
             String intid = id;
@@ -45,7 +45,7 @@ public class paymentsController {
                 // System.out.println(e);
             }
             try {
-                Deliveries delivery = deliveryDAO.getDeliveriesByID(id); // Replace with your method to get a delivery by ID.
+                Deliveries delivery = deliveryDAO.getPaidDeliveriesByID(id); // Replace with your method to get a delivery by ID.
                 deliveries.add(delivery);
             } catch (Exception e) {
                 System.out.println("Delivery NOT FOUND!");
