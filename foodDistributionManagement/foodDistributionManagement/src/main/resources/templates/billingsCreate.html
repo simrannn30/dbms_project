@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Edit Customer</title>
+    <title>Create Customer</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="/css/customer.css"> <!-- Link to the external CSS file -->
@@ -56,22 +56,25 @@
     </div>
     <div class="container">
         <!-- Page Content -->
-        <h1 class="mt-4">Edit Customer Information</h1>
+        <h1 class="mt-4">Add Product Information</h1>
             <div class="text-center">
               <br/>
-              <form action="" th:object="${customers}" method="post">
+              <form method="post" th:action = "'/CustomerDeliveries/view/'+${orderItem.Bill_No}+'/create'">
                   <table border="0" cellpadding="10">
                     <tr>
-                        <td>Name:</td>
-                        <td><input type="text" class="form-control" id="Name" name="Name" th:field="${customers.C_Name}" required /></td>
+                        <td><input type="hidden" class="form-control" id="bID" name="bID" th:field="${orderItem.Bill_No}" required /></td>
                     </tr>
                     <tr>
-                        <td>Contact:</td>
-                        <td><input type="text" class="form-control" id="Contact" name="Contact" th:field="${customers.Contact}" pattern="[0-9]{10}" required /></td>
+                        <td>Product ID:</td>
+                        <td><input type="text" class="form-control" id="ID" name="ID" th:field="${orderItem.P_ID}" pattern="P[0-9]*" required /></td>
                     </tr>
                     <tr>
-                        <td>Address:</td>
-                        <td><input type="text" class="form-control" id="Address" name="Address" th:field="${customers.Address}" required /></td>
+                        <td>Quantity:</td>
+                        <td><input type="text" class="form-control" id="Quantity" name="Quantity" th:field="${orderItem.Quantity}" required /></td>
+                    </tr>
+                    <tr>
+                        <td>Rate:</td>
+                        <td><input type="text" class="form-control" id="Rate" name="Rate" th:field="${orderItem.Rate}" pattern="[0-9]*" required /></td>
                     </tr>
                     <!-- Add more input fields for other attributes as needed -->
                     <tr>
@@ -85,6 +88,7 @@
       <!-- /#page-content-wrapper -->
     </div>
     <a href="/Customers" class="btn btn-secondary mt-3" style="background-color: #FFC107 ; border: none">Back</a>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -111,5 +115,6 @@
             sidebarOpen = !sidebarOpen;
         }
     </script>
+
 </body>
 </html>

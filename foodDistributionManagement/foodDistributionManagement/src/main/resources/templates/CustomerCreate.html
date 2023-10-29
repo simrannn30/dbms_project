@@ -7,6 +7,53 @@
     <link rel="stylesheet" type="text/css" href="/css/customer.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
+    <div id="sidebar" class="sidenav">
+        <div class="menu-container">
+            <h2><big><b>Menu</b></big></h2>
+        </div>
+        <ul class="list-unstyled components">
+            <li>
+                <a href="/dashboard" class="btn btn-block btn-primary sidebar-button">
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
+                    Customers
+                </a>
+            </li>
+            <li>
+                <a href="/CustomerDeliveries" class="btn btn-block btn-primary sidebar-button">
+                    Customer Deliveries
+                </a>
+            </li>
+            <li>
+                <a href="/Payments" class="btn btn-block btn-primary sidebar-button">
+                    Payments
+                </a>
+            </li>
+            <li>
+                <a href="/suppliers" class="btn btn-block btn-primary sidebar-button">
+                    Suppliers
+                </a>
+            </li>
+            <li>
+                <a href="/SupplierOrders" class="btn btn-block btn-primary sidebar-button">
+                    Supplier Orders
+                </a>
+            </li>
+            <li>
+                <a href="/Products" class="btn btn-block btn-primary sidebar-button">
+                    Products
+                </a>
+            </li>
+            <li>
+                <a href="/Employees" class="btn btn-block btn-primary sidebar-button">
+                    Employees
+                </a>
+            </li>
+        </ul>
+    </div>
     <div class="container">
         <!-- Page Content -->
         <h1 class="mt-4">Add Customer Information</h1>
@@ -46,6 +93,29 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        let sidebarOpen = false;
+    
+        function toggleNav() {
+            const sidebar = document.getElementById("sidebar");
+            const main = document.getElementById("main");
+            const hamburgerButton = document.querySelector('.openbtn');
+    
+            if (!sidebarOpen) {
+                sidebar.style.width = "250px";
+                main.style.marginLeft = "250px";
+                hamburgerButton.textContent = '✕';
+                hamburgerButton.classList.add('shifted');
+            } else {
+                sidebar.style.width = "0";
+                main.style.marginLeft = "0";
+                hamburgerButton.textContent = '☰';
+                hamburgerButton.classList.remove('shifted');
+            }
+    
+            sidebarOpen = !sidebarOpen;
+        }
+    </script>
 
 </body>
 </html>

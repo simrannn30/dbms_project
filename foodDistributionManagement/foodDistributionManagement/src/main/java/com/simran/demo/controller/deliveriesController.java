@@ -78,6 +78,7 @@ public class deliveriesController {
         // if(!authenticationService.isAuthenticated(session)){
         // return "redirect:/login";
         // }
+        deliveries.setAmount((long)0);
         deliveryDAO.insertDeliveries(deliveries);
         return "redirect:/CustomerDeliveries";
     }
@@ -120,9 +121,38 @@ public class deliveriesController {
         // }
         List<BillingDetails> items = new ArrayList<>();
         items = billingDAO.getCustomerOrderItemByCustomerOrder(id);
+
+
+
         model.addAttribute("items", items);
 
         return "billings";
     }
 
+    
+    @GetMapping("/CustomerDeliveries/view/{id}/create")
+    public String createCustomerOrder(@PathVariable("id") String id, Model model, HttpSession session) {
+        // if(!authenticationService.isAuthenticated(session)){
+        // return "redirect:/login";
+        // }
+        BillingDetails orderItem = new BillingDetails();
+        orderItem.setBill_No(id);
+        model.addAttribute("orderItem", orderItem);
+        return "billingsCreate";
+    }
+
+    @PostMapping("/CustomerDeliveries/view/{id}/create")
+    public String createCustomerOrder(@ModelAttribute("orderItem") BillingDetails orderItem, HttpSession session, @PathVariable("id") String id) {
+        // if(!authenticationService.isAuthenticated(session)){
+        // return "redirect:/login";
+        // }
+        billingDAO.insertOrderItem(orderItem);
+
+        Deliveries deliveries = deliveryDAO.getDeliveriesByID(orderItem.getBill_No());
+        deliveries.setAmount(deliveries.getAmount()+orderItem.getRate()*orderItem.getQuantity());
+        deliveryDAO.updateDeliveries(deliveries.getD_ID(),deliveries);
+
+
+        return "redirect:/CustomerDeliveries/view/{id}";
+    }
 }

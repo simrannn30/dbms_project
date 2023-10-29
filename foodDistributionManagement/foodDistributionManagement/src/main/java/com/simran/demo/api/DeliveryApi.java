@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simran.demo.model.BillingDetails;
@@ -59,5 +60,10 @@ public class DeliveryApi {
     @GetMapping(path = "/view/{id}")
     public List<BillingDetails> getCustomerOrderItemByCustomerOrder(@PathVariable("id") String id){
         return billingService.getCustomerOrderItemByCustomerOrder(id);
+    }
+
+    @PostMapping(path = "/view/{id}/create")
+    public int insertOrderItem(@RequestBody BillingDetails OrderItem,@PathVariable("id") String id){
+        return billingService.insertOrderItem(OrderItem);
     }
 }

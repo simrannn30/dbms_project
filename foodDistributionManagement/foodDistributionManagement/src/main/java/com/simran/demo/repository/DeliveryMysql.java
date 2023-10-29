@@ -45,7 +45,7 @@ public class DeliveryMysql implements deliveryDAO{
     @Override
     @Deprecated
     public Deliveries getPaidDeliveriesByID(String id) {
-        String query = "SELECT * FROM Deliveries WHERE D_ID = ? and P_status = Paid;";
+        String query = "SELECT * FROM Deliveries WHERE D_ID = ? and P_status = 'Paid';";
         Object[] args = new Object[]{
                 id
         };

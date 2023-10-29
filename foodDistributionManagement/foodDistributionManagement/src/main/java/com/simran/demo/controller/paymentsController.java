@@ -45,8 +45,8 @@ public class paymentsController {
                 // System.out.println(e);
             }
             try {
-                Deliveries delivery = deliveryDAO.getPaidDeliveriesByID(id); // Replace with your method to get a delivery by ID.
-                deliveries.add(delivery);
+                Deliveries devs = deliveryDAO.getPaidDeliveriesByID(intid); // Replace with your method to get a delivery by ID.
+                deliveries.add(devs);
             } catch (Exception e) {
                 System.out.println("Delivery NOT FOUND!");
             }

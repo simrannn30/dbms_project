@@ -39,8 +39,13 @@
                 </a>
             </li>
             <li>
-                <a href="/Customers" class="btn btn-block btn-primary sidebar-button">
+                <a href="/SupplierOrders" class="btn btn-block btn-primary sidebar-button">
                     Supplier Orders
+                </a>
+            </li>
+            <li>
+                <a href="/Products" class="btn btn-block btn-primary sidebar-button">
+                    Products
                 </a>
             </li>
             <li>
@@ -57,7 +62,7 @@
         <div class="container">
             <h1 class="mt-4"><b>Order Details List</b></h1>
             <div class="add-button-container">
-                <a href="/CustomerDeliveries/create" class="btn btn-success mb-2">
+                <a th:href="'/CustomerDeliveries/view/'+${id}+'/create'" class="btn btn-success mb-2">
                     <span>Add New Product</span>
                   </a>
             </div>
@@ -78,6 +83,7 @@
                 </tbody>
             </table>
         </div>
+        <a href="/CustomerDeliveries" class="btn btn-secondary mt-3" style="background-color: #FFC107 ; border: none">Back</a>
     </div>
     <footer class="footer">
         <div class="container">
