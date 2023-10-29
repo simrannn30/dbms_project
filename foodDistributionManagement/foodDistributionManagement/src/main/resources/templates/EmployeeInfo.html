@@ -53,6 +53,10 @@
                     Employees
                 </a>
             </li>
+
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="btn btn-block btn-primary sidebar-button">Logout</a></li>
+                </ul>
+            </div>
         </ul>
     </div>
     <div id="main">

@@ -4,6 +4,13 @@
             "type": "java",
             "name": "FoodDistributionManagementApplication",
             "request": "launch",
+            "mainClass": "com.simran.demo.FoodDistributionManagementApplication",
+            "projectName": "foodDistributionManagement"
+        },
+        {
+            "type": "java",
+            "name": "FoodDistributionManagementApplication",
+            "request": "launch",
             "mainClass": "com.simran.demo.foodDistributionManagement.FoodDistributionManagementApplication",
             "projectName": "foodDistributionManagement"
         },

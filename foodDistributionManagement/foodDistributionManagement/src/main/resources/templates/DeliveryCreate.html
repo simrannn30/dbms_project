@@ -52,6 +52,10 @@
                     Employees
                 </a>
             </li>
+
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="btn btn-block btn-primary sidebar-button">Logout</a></li>
+                </ul>
+            </div>
         </ul>
     </div>
     <div class="container">
@@ -94,7 +98,8 @@
                                 <option value="Pending">Pending</option>
                                 <option value="Paid">Paid</option>
                             </select>
-                        </td>                    </tr>
+                        </td>
+                    </tr>
                     <!-- Add more input fields for other attributes as needed -->
                     <tr>
                         <td colspan="2">

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      >
 <head>
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -53,6 +55,10 @@
                     Employees
                 </a>
             </li>
+
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="btn btn-block btn-primary sidebar-button">Logout</a></li>
+                </ul>
+            </div>
         </ul>
     </div>
     <div id="main">

@@ -62,4 +62,8 @@ public class OrderApi {
         return billingService.getSupplierOrderItemBySupplierOrder(id);
     }
 
+    @PostMapping(path = "/view/{id}/create")
+    public int insertOrderItem(@RequestBody BillingDetails OrderItem,@PathVariable("id") String id){
+        return billingService.insertOrderItem(OrderItem);
+    }
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.simran.demo.dao.billingDAO;
 import com.simran.demo.dao.orderDAO;
 import com.simran.demo.model.BillingDetails;
+import com.simran.demo.model.Deliveries;
 import com.simran.demo.model.Orders;
 
 import jakarta.servlet.http.HttpSession;
@@ -81,6 +82,7 @@ public class ordersController {
         // if(!authenticationService.isAuthenticated(session)){
         //     return "redirect:/login";
         // }
+        orders.setAmount((long)0);
         orderDAO.insertOrders(orders);
         return "redirect:/SupplierOrders";
     }
@@ -126,7 +128,34 @@ public class ordersController {
         items = billingDAO.getSupplierOrderItemBySupplierOrder(id);
         model.addAttribute("items", items);
 
-        return "billings";
+        return "supplierbillings";
     }
 
+    @GetMapping("/SupplierOrders/view/{id}/create")
+    public String createSupplierOrder(@PathVariable("id") String id, Model model, HttpSession session) {
+        // if(!authenticationService.isAuthenticated(session)){
+        // return "redirect:/login";
+        // }
+        // System.out.println("kya hua");
+        BillingDetails orderItem = new BillingDetails();
+        orderItem.setBill_No(id);
+        model.addAttribute("orderItem", orderItem);
+        return "supplierbillingsCreate";
+    }
+
+    @PostMapping("/SupplierOrders/view/{id}/create")
+    public String createSupplierOrder(@ModelAttribute("orderItem") BillingDetails orderItem, HttpSession session, @PathVariable("id") String id) {
+        // System.out.println("pata nhi");
+        // if(!authenticationService.isAuthenticated(session)){
+        // return "redirect:/login";
+        // }
+        billingDAO.insertOrderItem(orderItem);
+
+        Orders orders = orderDAO.getOrdersByID(orderItem.getBill_No());
+        orders.setAmount(orders.getAmount()+orderItem.getRate()*orderItem.getQuantity());
+        orderDAO.updateOrders(orders.getO_ID(),orders);
+
+
+        return "redirect:/SupplierOrders/view/{id}";
+    }
 }

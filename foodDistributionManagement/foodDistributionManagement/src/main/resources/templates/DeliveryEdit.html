@@ -52,6 +52,10 @@
                     Employees
                 </a>
             </li>
+
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="btn btn-block btn-primary sidebar-button">Logout</a></li>
+                </ul>
+            </div>
         </ul>
     </div>
     <div class="container">
@@ -81,9 +85,11 @@
                         </tr>
                         <tr>
                             <td>Delivery Date:</td>
-                            <td><input type="date" class="form-control" id="D_Date" name="D_Date" th:field="${deliveries.D_Date}" required /></td>
+                            <td><input type="text" class="form-control" id="D_Date" name="D_Date" th:value="${#dates.format(deliveries.D_Date, 'yyyy-MM-dd')}" required/></td>                        </tr>
+                        <tr>
+                            <td>Amount:</td>
+                            <td><input type="text" class="form-control" id="Amount" name="Amount" th:value="${deliveries.Amount}" required readonly="readonly"/></td>
                         </tr>
-        
                         <tr>
                             <td>Payment Status:</td>
                             <td>
@@ -91,7 +97,8 @@
                                     <option value="Pending">Pending</option>
                                     <option value="Paid">Paid</option>
                                 </select>
-                            </td>                    </tr>
+                            </td>
+                        </tr>
                     <!-- Add more input fields for other attributes as needed -->
                     <tr>
                         <td colspan="2">

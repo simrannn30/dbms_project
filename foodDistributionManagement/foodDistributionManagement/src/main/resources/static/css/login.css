@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+    font-family: Montserrat, Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    height: 450px;
+    width: 900px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: linear-gradient(to left, #f4511e 470px, #fff 450px);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-column {
+    flex: 1;
+    text-align: center;
+    color: #333; /* Light blue color for text */
+    flex-direction: column; /* Stack form elements vertically */
+}
+
+.left-column {
+    flex: 1;
+    text-align: center;
+    flex-direction: column; /* Stack form elements vertically */
+}
+
+h1 {
+    font-size: 48px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-family: Montserrat, sans-serif;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+/* Your existing styles */
+/* Your existing styles */
+input {
+    width: 70%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f4f9fa;
+    color: #000000;
+    font-family: "Arial", sans-serif; /* Change the font family to "Roboto" */
+    font-size: medium;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Add hover styles for the input boxes */
+input:hover {
+    border-color: #007BFF; /* Change border color on hover */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2); /* Add a subtle box-shadow on hover */
+}
+
+/* Add focus styles for the input boxes */
+input:focus {
+    border-color: #007BFF; /* Change border color on focus */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.4); /* Add a stronger box-shadow on focus */
+}
+
+
+button {
+    width: 20%;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.signup-button {
+    width: 30%;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(143, 237, 253);
+    color: #333;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#message {
+    color: red;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
