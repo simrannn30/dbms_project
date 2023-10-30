@@ -15,8 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.simran.demo.dao.billingDAO;
 import com.simran.demo.dao.deliveryDAO;
+import com.simran.demo.dao.employeeDAO;
+import com.simran.demo.dao.productDAO;
+import com.simran.demo.dao.customerDAO;
 import com.simran.demo.model.BillingDetails;
 import com.simran.demo.model.Deliveries;
+import com.simran.demo.model.Products;
+import com.simran.demo.model.Employees;
+import com.simran.demo.model.Clients;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -29,6 +35,15 @@ public class deliveriesController {
 
     @Autowired
     private billingDAO billingDAO;
+
+    @Autowired
+    private productDAO productDAO;
+
+    @Autowired
+    private employeeDAO employeeDAO;
+
+    @Autowired
+    private customerDAO customerDAO;
 
     @GetMapping("/CustomerDeliveries")
     public String listDeliveries(Model model, HttpSession session, @RequestParam(required = false) String id,
@@ -68,8 +83,12 @@ public class deliveriesController {
         // if(!authenticationService.isAuthenticated(session)){
         // return "redirect:/login";
         // }
+        List<Employees> employees = employeeDAO.getAllEmployee();
+        List<Clients> customers = customerDAO.getAllCustomer();
         Deliveries deliveries = new Deliveries();
         model.addAttribute("deliveries", deliveries);
+        model.addAttribute("employees", employees);
+        model.addAttribute("customers", customers);
         return "DeliveryCreate";
     }
 
@@ -152,7 +171,10 @@ public class deliveriesController {
         deliveries.setAmount(deliveries.getAmount()+orderItem.getRate()*orderItem.getQuantity());
         deliveryDAO.updateDeliveries(deliveries.getD_ID(),deliveries);
 
-
+        Products products = productDAO.getProductByID(orderItem.getP_ID());
+        long x = products.getStock() - orderItem.getQuantity();
+        products.setStock(x);
+        productDAO.updateProduct(products.getP_ID(), products);
         return "redirect:/CustomerDeliveries/view/{id}";
     }
 }

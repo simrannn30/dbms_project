@@ -34,7 +34,7 @@ create table Products (
 P_ID varchar(20),
 P_Name varchar(55), 
 M_ID varchar(20), 
-Stock bigint,
+Stock bigint default 0,
 primary key (P_ID),
 constraint foreign key(M_ID) references Manufacturers(M_ID) on delete cascade
 );
@@ -137,6 +137,24 @@ END;
 
 DELIMITER ;
 
+DELIMITER //
+
+CREATE TRIGGER stock_trigger
+BEFORE INSERT ON Billing_Details
+FOR EACH ROW
+BEGIN
+    -- Check if stock is less than quantity
+    DECLARE product_stock BIGINT;
+    SELECT Stock INTO product_stock FROM Products WHERE P_ID = NEW.P_ID;
+    
+    IF product_stock < NEW.Quantity and LEFT(NEW.Bill_No, 1) = 'D' THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Not enough stock for this product.';
+    END IF;
+END;
+//
+
+DELIMITER ;
 
    SET SQL_SAFE_UPDATES = 0;
 
@@ -172,65 +190,65 @@ VALUES
     
     
     -- Populate the Products table with sample data
-INSERT INTO Products (P_ID, P_Name, M_ID, Stock)
+INSERT INTO Products (P_ID, P_Name, M_ID)
 VALUES
     
-    ('P202', 'Annapurna Salt', 'M101', 200),
-    ('P203', 'Boost', 'M101', 150),
-    ('P204', 'Bru Coffee', 'M101', 120),
-    ('P205', 'Brooke Bond', 'M101', 180),
-    ('P206', 'Knorr soups', 'M101', 250),
+    ('P202', 'Annapurna Salt', 'M101'),
+    ('P203', 'Boost', 'M101'),
+    ('P204', 'Bru Coffee', 'M101'),
+    ('P205', 'Brooke Bond', 'M101'),
+    ('P206', 'Knorr soups', 'M101'),
     
-    ('P301', 'Sunfeast Mom’s Magic Butter Fills', 'M102', 100),
-    ('P302', 'Yippee', 'M102', 150),
-    ('P303', 'Aashirvaad Organic Atta', 'M102', 200),
-    ('P304', 'Bingo!Cheese Nachos', 'M102', 120),
-    ('P305', 'Tedhe Medhe Aloo Bhujia', 'M102', 180),
+    ('P301', 'Sunfeast Mom’s Magic Butter Fills', 'M102'),
+    ('P302', 'Yippee', 'M102'),
+    ('P303', 'Aashirvaad Organic Atta', 'M102'),
+    ('P304', 'Bingo!Cheese Nachos', 'M102'),
+    ('P305', 'Tedhe Medhe Aloo Bhujia', 'M102'),
     
-    ('P401', 'Nescafe', 'M103', 200),
-    ('P402', 'Maggi', 'M103', 250),
-    ('P403', 'Milkybar', 'M103', 150),
-    ('P404', 'Milo', 'M103', 180),
-    ('P405', 'Kit Kat', 'M103', 100),
+    ('P401', 'Nescafe', 'M103'),
+    ('P402', 'Maggi', 'M103'),
+    ('P403', 'Milkybar', 'M103'),
+    ('P404', 'Milo', 'M103'),
+    ('P405', 'Kit Kat', 'M103'),
     
-    ('P501', 'MarieGold', 'M104', 120),
-    ('P502', 'Tiger', 'M104', 180),
-    ('P503', 'Nutrichoice', 'M104', 200),
-    ('P504', 'Good Day', 'M104', 250),
-    ('P505', '50 50', 'M104', 100),
+    ('P501', 'MarieGold', 'M104'),
+    ('P502', 'Tiger', 'M104'),
+    ('P503', 'Nutrichoice', 'M104'),
+    ('P504', 'Good Day', 'M104'),
+    ('P505', '50 50', 'M104'),
     
-    ('P601', 'Tata Salt', 'M105', 200),
-    ('P602', 'Tata Tea', 'M105', 180),
-    ('P603', 'Tata Sampann', 'M105', 250),
-    ('P604', 'Tetley', 'M105', 150),
-    ('P605', 'Himalayan mineral water', 'M105', 120),
+    ('P601', 'Tata Salt', 'M105'),
+    ('P602', 'Tata Tea', 'M105'),
+    ('P603', 'Tata Sampann', 'M105'),
+    ('P604', 'Tetley', 'M105'),
+    ('P605', 'Himalayan mineral water', 'M105'),
     
-    ('P701', 'Frooti', 'M106', 100),
-    ('P702', 'Appy', 'M106', 150),
-    ('P703', 'Appy Fizz', 'M106', 200),
-    ('P704', 'BFizz', 'M106', 120),
-    ('P705', 'SMOODH', 'M106', 180),
+    ('P701', 'Frooti', 'M106'),
+    ('P702', 'Appy', 'M106'),
+    ('P703', 'Appy Fizz', 'M106'),
+    ('P704', 'BFizz', 'M106'),
+    ('P705', 'SMOODH', 'M106'),
     
-    ('P801', 'Mother dairy icecreams', 'M107', 250),
-    ('P802', 'Mother dairy Paneer', 'M107', 200),
-    ('P803', 'Mother dairy Ghee', 'M107', 180),
+    ('P801', 'Mother dairy icecreams', 'M107'),
+    ('P802', 'Mother dairy Paneer', 'M107'),
+    ('P803', 'Mother dairy Ghee', 'M107'),
     
-    ('P901', 'Vadilal Quick treat Veggie Nuggets', 'M108', 150),
-    ('P902', 'Vadilal Quick treat Kala Chana', 'M108', 120),
-    ('P903', 'Vadilal Rasgulla', 'M108', 200),
-    ('P904', 'Vadilal Butterscotch Badam Milk Drink', 'M108', 180),
+    ('P901', 'Vadilal Quick treat Veggie Nuggets', 'M108'),
+    ('P902', 'Vadilal Quick treat Kala Chana', 'M108'),
+    ('P903', 'Vadilal Rasgulla', 'M108'),
+    ('P904', 'Vadilal Butterscotch Badam Milk Drink', 'M108'),
     
-    ('P1001', 'Haldiram’s Soan Cake', 'M109', 250),
-    ('P1002', 'Haldiram’s Fruit Cookies', 'M109', 200),
-    ('P1003', 'Haldiram’s Cashew Jar', 'M109', 180),
-    ('P1004', 'Haldiram’s Sweet Wonders', 'M109', 120),
-    ('P1005', 'Haldiram’s Bhujia', 'M109', 100),
+    ('P1001', 'Haldiram’s Soan Cake', 'M109'),
+    ('P1002', 'Haldiram’s Fruit Cookies', 'M109'),
+    ('P1003', 'Haldiram’s Cashew Jar', 'M109'),
+    ('P1004', 'Haldiram’s Sweet Wonders', 'M109'),
+    ('P1005', 'Haldiram’s Bhujia', 'M109'),
     
-    ('P1101', 'Parachute Coconut Oil', 'M110', 180),
-    ('P1102', 'Saffola Active', 'M110', 200),
-    ('P1103', 'Livon Hair Serum', 'M110', 120),
-    ('P1104', 'Set Wet Hair Gel', 'M110', 150),
-    ('P1105', 'Parachute Advanced Body Lotion', 'M110', 250);
+    ('P1101', 'Parachute Coconut Oil', 'M110'),
+    ('P1102', 'Saffola Active', 'M110'),
+    ('P1103', 'Livon Hair Serum', 'M110'),
+    ('P1104', 'Set Wet Hair Gel', 'M110'),
+    ('P1105', 'Parachute Advanced Body Lotion', 'M110');
 
  
   

@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.simran.demo.dao.billingDAO;
 import com.simran.demo.dao.orderDAO;
+import com.simran.demo.dao.productDAO;
 import com.simran.demo.model.BillingDetails;
 import com.simran.demo.model.Deliveries;
 import com.simran.demo.model.Orders;
+import com.simran.demo.model.Products;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -30,6 +32,9 @@ public class ordersController {
 
     @Autowired
     private billingDAO billingDAO;
+
+    @Autowired
+    private productDAO productDAO;
 
     @GetMapping("/SupplierOrders")
     public String listOrders(Model model, HttpSession session, @RequestParam(required = false) String id, @RequestParam(required = false) String manufacturerid) {
@@ -155,7 +160,10 @@ public class ordersController {
         orders.setAmount(orders.getAmount()+orderItem.getRate()*orderItem.getQuantity());
         orderDAO.updateOrders(orders.getO_ID(),orders);
 
-
+        Products products = productDAO.getProductByID(orderItem.getP_ID());
+        long x = products.getStock() + orderItem.getQuantity();
+        products.setStock(x);
+        productDAO.updateProduct(products.getP_ID(), products);
         return "redirect:/SupplierOrders/view/{id}";
     }
 }

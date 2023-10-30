@@ -67,7 +67,7 @@
                   <table border="0" cellpadding="10">
                     <tr>
                         <td>ID:</td>
-                        <td><input type="text" class="form-control" id="ID" name="ID" th:field="${suppliers.M_ID}" required /></td>
+                        <td><input type="text" class="form-control" id="ID" name="ID" th:field="${suppliers.M_ID}" pattern="M[0-9]*" required /></td>
                     </tr>
                     <tr>
                         <td>Name:</td>

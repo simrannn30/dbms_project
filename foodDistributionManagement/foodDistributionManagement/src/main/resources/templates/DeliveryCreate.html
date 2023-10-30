@@ -67,16 +67,24 @@
                   <table border="0" cellpadding="10">
                     <tr>
                         <td>Delivery ID:</td>
-                        <td><input type="text" class="form-control" id="ID" name="ID" th:field="${deliveries.D_ID}" required /></td>
+                        <td><input type="text" class="form-control" id="ID" name="ID" th:field="${deliveries.D_ID}" pattern="D[0-9]*" required /></td>
                     </tr>
                     <tr>
                         <td>Client ID:</td>
-                        <td><input type="text" class="form-control" id="C_ID" name="C_ID" th:field="${deliveries.C_ID}" required /></td>
+                        <td>
+                            <select class="form-control" th:field="${deliveries.C_ID}" >
+                                <option th:each="customer : ${customers}" th:value="${customer.C_ID}" th:text="${customer.C_Name}"></option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>Employee Assigned:</td>
-                        <td><input type="text" class="form-control" id="Employee_Assigned" name="Employee_Assigned" th:field="${deliveries.Employee_Assigned}" pattern="[0-9]*" required /></td>
-                    </tr>
+                        <td>
+                            <select class="form-control" th:field="${deliveries.Employee_Assigned}" >
+                                <option th:each="employee : ${employees}" th:value="${employee.E_ID}" th:text="${employee.E_Name}"></option>
+                            </select>
+                        </td>
+                    </tr>                    
                     <tr>
                         <td>Delivery Status:</td>
                         <td>

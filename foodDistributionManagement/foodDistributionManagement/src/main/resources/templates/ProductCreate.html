@@ -67,7 +67,7 @@
                   <table border="0" cellpadding="10">
                     <tr>
                         <td>ID:</td>
-                        <td><input type="text" class="form-control" id="ID" name="ID" th:field="${products.P_ID}" required /></td>
+                        <td><input type="text" class="form-control" id="ID" name="ID" th:field="${products.P_ID}" pattern="P[0-9]*" required /></td>
                     </tr>
                     <tr>
                         <td>Name:</td>
@@ -76,10 +76,6 @@
                     <tr>
                         <td>Manufacturer:</td>
                         <td><input type="text" class="form-control" id="Manufacturer" name="Manufacturer" th:field="${products.M_ID}" pattern="M[0-9]*" required /></td>
-                    </tr>
-                    <tr>
-                        <td>Stock:</td>
-                        <td><input type="text" class="form-control" id="Stock" name="Stock" th:field="${products.Stock}" required /></td>
                     </tr>
                     <!-- Add more input fields for other attributes as needed -->
                     <tr>

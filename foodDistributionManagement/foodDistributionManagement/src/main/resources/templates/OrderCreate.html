@@ -67,19 +67,15 @@
                   <table border="0" cellpadding="10">
                     <tr>
                         <td>Order ID:</td>
-                        <td><input type="text" class="form-control" id="ID" name="ID" th:field="${orders.O_ID}" required /></td>
+                        <td><input type="text" class="form-control" id="ID" name="ID" th:field="${orders.O_ID}" pattern="O[0-9]*" required /></td>
                     </tr>
                     <tr>
                         <td>Supplier ID:</td>
-                        <td><input type="text" class="form-control" id="M_ID" name="M_ID" th:field="${orders.M_ID}" required /></td>
+                        <td><input type="text" class="form-control" id="M_ID" name="M_ID" th:field="${orders.M_ID}" pattern="M[0-9]*" required /></td>
                     </tr>
                     <tr>
                         <td>Order Date:</td>
                         <td><input type="date" class="form-control" id="O_Date" name="O_Date" th:field="${orders.O_Date}" required /></td>
-                    </tr>
-                    <tr>
-                        <td>Amount:</td>
-                        <td><input type="text" class="form-control" id="Amount" name="Amount" th:field="${orders.Amount}" required /></td>
                     </tr>
                     <!-- Add more input fields for other attributes as needed -->
                     <tr>

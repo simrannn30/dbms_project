@@ -10,10 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -58,6 +54,7 @@ public class productsController {
         // if(!authenticationService.isAuthenticated(session)){
         //     return "redirect:/login";
         // }
+        products.setStock((long)0);
         productDAO.insertProduct(products);
         return "redirect:/Products";
     }

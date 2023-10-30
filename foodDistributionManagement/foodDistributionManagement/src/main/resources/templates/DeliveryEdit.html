@@ -67,7 +67,7 @@
                   <table border="0" cellpadding="10">
                     <tr>
                         <td>Client ID:</td>
-                        <td><input type="text" class="form-control" id="C_ID" name="C_ID" th:field="${deliveries.C_ID}" required /></td>
+                        <td><input type="text" class="form-control" id="C_ID" name="C_ID" th:field="${deliveries.C_ID}" pattern="[0-9]*" required /></td>
                     </tr>
                     <tr>
                         <td>Employee Assigned:</td>
